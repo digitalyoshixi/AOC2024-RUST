@@ -1018,11 +1018,10 @@ fn main() {
 
     l1.sort();
     l2.sort();
-    l1.dedup();
     let mut lsum = 0;
-    for i in l1{
-        let count : i32 = l2.iter().filter(|&&x| x == i).count().try_into().unwrap();
-        lsum += i * count;
+    for i in 0..l1.len(){
+        let sum : i32 = l1[i] - l2[i];
+        lsum += sum.abs();
     }
 
     println!("{}", lsum);
